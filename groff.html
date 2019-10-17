@@ -1,0 +1,163 @@
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="sidepanel">
+	<a href="index.html">Home</a> 
+</div>
+<div class="mainpanel">
+<h1>A groff/troff/nroff Introduction with Annotated Bibliography - More information pending, still under construction! </h1>
+<h2>Table of Contents</h2>
+<ol>
+ 
+	<li>Introduction</li>
+	<li>History</li>
+	<li>Macros</li>
+	<li>Preprocessors</li>
+	<li>Compilation</li>
+	<li>Versions</li>
+	<li>Bibliography</li>
+</ol>
+
+<h2>Introduction</h2>
+
+<p>I thought I would make a short introduction to the nroff/troff/groff (in general -> roff)
+document preparation system. It is an extremely lightweight alternative
+to TeX. It has been around since the 70's and is still quite serviceable 
+to write documents in. I want to provide a short introduction to the program, prior to what I really want to provide, the annotated bibliography. This is because I do not have anything better to say than what has already been said by people who created the system or worked with it when it was first developed.</p> 
+<p>My motivation for this was that the information I needed in order to learn to use groff took considerably more scouring compared to what I am used to when looking up information on software. I want to share this information in hopes that someone like me searching for information in the future stumbles upon this and saves themselves some time and frustration. I hope you enjoy learning about and using groff as much as I have.</p>
+<h2>History</h2>
+<p>The first appearance of roff on a UNIX system
+was in 1970's at Bell Laboratories, written by Joseph Ossanna. The software was later rewritten by Brian Kernighan, and its capabilities were expanded beyond the particular hardware that Ossanna originally wrote troff for<sup>1</sup>.</p>
+<p>If you have any experience with modern GNU/Linux systems, you are likely guessing that the name change from troff to groff means that it was rewritten under GNU, and you would be correct. James Clark reimplemented troff as groff and released it through GNU under the GNU GPL<sup>2</sup>.</p>
+
+<p>Today, the main use for groff is in writing manual pages for UNIX and
+linux systems. However, it can also be used to make papers, reports or even
+books. In fact, much of the literature on groff has been written by <b>the</b> Brian Kernighan, and some of his books, including <em>The C Programming Language</em> were typeset in troff.</p>
+
+<h2>Macros</h2>
+
+<p>The raw commands in groff are used sparingly, and similar to TeX, people have 
+defined sets of macros which make the use of the software easier for the 
+end user. There are a few different competing macro sets that can be
+used with groff. Only one of these sets can be used at a time, and they
+are picked via command line flags when compiling your groff document.</p>
+
+<h2>Preprocessors</h2>
+The different preprocessors for groff allow us to add components to our documents that are not just text. These include eqn for mathematical equations, chem for drawing chemical figures, pic for diagrams, tbl for inserting tables, and refer for managing references.
+
+
+<!-- <h3>eqn</h3>
+This allows us to add mathematical equations to our groff document.<br>
+<br>
+<code>
+
+.EQ<br>
+x bar = ( sum x sub i from i=1 to n ) over n<br>
+.EN
+</code>
+
+<h3>pic</h3>
+
+<h3>chem</h3>
+
+<h3>tbl</h3>
+
+<h3>refer</h3>
+--!>
+
+<h2>Compilation</h2>
+
+<p>A basic command for groff might look like this:</p>
+
+<code>groff -ms input -T pdf > output </code><br>
+<p>This tells groff a few things.</p>
+<ul>
+  <li>-ms tells groff we are using the ms macros.</li>
+  <li> input is the name of the file we are passing to groff</li>
+  <li>-T pdf tells groff to output a pdf file. In place of pdfs we can also tell groff to give us other file types, such as dvi and ps. </li>
+  <li>> output redirects the output stream to a file named output.</li>
+</ul>
+
+<h2>Versions</h2>
+<p>
+Before we get to the bibliography, I just want to make
+a quick statement about the different versions of this
+software, as we have been using troff, groff, nroff,
+and roff in a seemingly interchangeable manner. Groff
+is the specific name for the GNU reimplementation
+of troff that is found on virtually all modern systems.
+Troff specifically refers to the typesetting version
+of the UNIX version, whereas nroff is the term for
+its typewriter counterpart. Groff is generally a
+faithful reproduction of troff, and the vast majority
+of behavior found in troff is exhibited in groff.
+There are a few things worth noting. First, many
+document formats which were particular to Bell 
+Laboratories did not find themselves into the
+GNU implementation of the macro packages. Second, there
+are various slight functional differences, most of which
+can be found on groff's man page.
+</p>
+
+<p>There are also more modern forks of groff in existence.
+Utroff is a modern tool and macro set for troff. 
+Heirloom Troff and Neatroff are implementations of
+troff bringing improvements not
+the least of which is the TeX paragraph level typesetting
+algorithm, present in both of the above implementations.
+Another macro package, mom, while it has been around for
+a while now, is still very much alive, and is extremely
+well documented by its creator<sup>7</sup>.</p>
+
+<p>
+The vast majority of the material referenced in the
+bibliography is specifically
+talking about UNIX troff. However, most
+of the material will still be accurate when working
+with groff. 
+</p>
+
+
+
+<div class="bib">
+
+<h2>Bibliography</h2>
+
+
+<ol>
+	<li>Joseph Ossanna, Brian Kernighan. Computing Science Technical Report No. 54: Troff User's Manual (2nd ed.). 1992. Bell Laboratories.  </li>
+	<p class="annotation">User's manual written by those who wrote the original UNIX version of the program. Doesn't get better than this for understanding the core program. Includes coverage of the ms macros.</P>
+
+	<li>Free Software Foundation. The GNU Troff Manual. 2018. https://www.gnu.org/software/groff/manual/html_node/index.html#SEC_Contents</li>
+	<p class="annotation">This is the GNU troff manual. Great description of of the base program and the man and ms macros. However, it lacks documentation of mm, me, mdoc, and mom macro packages.</p>
+	
+	<li>Brian W. Kernighan and Lorinda L. Cherry. A System for Typesetting Mathematics. 1975. Bell Laboratories</li>
+	<p class="annotation">Paper explaining eqn by its creator. Note that this is a bit terse, and serves more of an exposition of what it is and how it was programmed, with sparse usable examples throughout.</p>
+	
+	<li>Brian W. Kernighan and Rob Pike. The UNIX Programming Environment. 1983. Prentice Hall Professional Technical Reference.</li>
+	<p class="annotation">Great book on UNIX. Has a chapter dedicated to document processing using troff.</p>
+	<li>Michael E. Lesk. Tbl — a program to format tables. 1979. In Unix Programmer’s Manual, Vol. 2, M.D. McIlroy and B.W. Kernighan, Eds. AT&T Bell Laboratories.
+	<p class="annotation">Great write up of tbl by its creator. Has many different working examples within the text, so it works great not only as an introduction or reference, but also as a cookbook.</p>
+	<p class="annotation">Also, it is worth noting that the volume which this paper is found in, the UNIX Programmer's Manual Volume 2, has a wealth of other roff related papers within it, so it is a good source for some other papers listed in this bibliography, if you can not find them on their own.</p>
+	<li>Dale Dougherty, Tim O'Reilly. UNIX Text Processing. 1987. Hayden Books.</li>
+	<p class="annotation">Absolutely fantastic. A book covering much more than just *roff.
+	Chapters 4-6 cover troff itself,
+	the ms macros, and the mm macros, respectively. Chapters 8.9, and 10 cover the preprocessors.
+	The real gold is found in chapters 14-18 which go through the details of the system,
+	including writing your own macros, and ending with you creating an external table of contents. 
+	This is probably the best tutorial book in existence for *roff today.
+	<b> If you are only going to read one book in this bibliography, make it this one</b>.
+	</p>
+
+	<li>Peter Schaffter. mom, version 2.4.1 Documentation. 2019. http://www.schaffter.ca/mom/momdoc/toc.html</li>
+	<p class="annotation">An amazing reference and tutorial all in one. Thorough and clear, it covers everything. If you want to use the mom system of macros, there is nothing else you need to see besides this page.</p>
+	
+	<li>Jon L. Bentley, Lynn W. Jelinski, Brian W. Kernighan. Computing Science Technical Report No. 122: CHEM - A Program for Typesetting Chemical Diagrams: User Manual. 1992. Bell Laboratories.</li>
+	<p class="annotation">The user manual for the chem preprocessor. Contains many working examples, great reference and tutorial.</p>
+</ol>
+</div>
+</div>
+</body>
+</html>

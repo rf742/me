@@ -1,0 +1,79 @@
+.annotation {
+ color: white;
+}
+.side {
+	color: black;
+}
+
+html {
+	padding-bottom: 100px;
+	color: #39cc2f;
+	font-family: monospace;
+	background: black;
+}
+.sidepanel {
+	color: black;
+}
+
+a {
+	text-decoration: none;
+}
+.toc a:link {
+	text-decoration: none;
+}
+
+body {
+	max-width: 1050px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 30px;
+	overflow: none;
+}
+
+
+.mainpanel {
+
+	max-width: 700px;
+	padding: 4px;
+	padding-right: 30px;
+}
+
+.mainpanel li {
+    line-height:20px;
+}
+
+.sidepanel {
+	float: right;
+	max-width: 300px;
+	background-color: #dfe4e8;
+	padding:2px;
+	border-radius: 10px 10px 10px 10px;
+}
+
+.sidepanel a {
+    color: #85631b;
+}
+
+.sidepanel a:hover {
+    color: #d89e23;
+}
+
+.sidepanel ul li {
+    font-size:20px;
+    margin:0 0 15px 0;
+}
+
+.sidepanel ul li ul li {
+    font-size:18px;
+    margin: 0px;
+    list-style: none;
+}
+
+a:hover img {
+background: #fe8019;
+}
+
+code {
+background: #1d2021; 
+}
+
