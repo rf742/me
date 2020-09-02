@@ -1,0 +1,80 @@
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="sidepanel">
+	<a href="index.html">Home</a> 
+</div>
+<div class="mainpanel">
+<h1>Groff Tutorial, part 1</h1>
+<h2>Table of Contents</h2>
+<ol>
+ 
+	<li>Installation</li>
+	<li>Your First Groff Document</li>
+	<li>Compilation</li>
+	<li>Conclusion</li>
+</ol>
+
+<h2>Installation</h2>
+
+<p>Before we can run groff, we must install groff. In order to do this, you will need one of three things:</p>
+<ul>
+<li>A Linux/BSD system.</li>
+<li>A Mac with homebrew installed.</li>
+<li>A Windows 10 system with WSL installed.</li>
+</ul>
+<p>Any of these will provide access to groff. Note that mac, linux, and bsd systems generally come with
+some form of groff installed. Do not use this package as is. Most linux distros refer to this preinstalled
+system as 'groff-base' and it will not come with many of the related packages we need to use.</p>
+<p>The following command is generally all that is needed on any linux system that uses apt:</p>
+<code>
+sudo apt install groff
+</code>
+
+<p>
+This is also the same command to use if you are using WSL with Ubuntu.
+If you are not using a distro that uses apt, refer to the documentation for the repositories for the correct package
+name and install command.</p>
+<p>If you are using mac, use homebrew to install it like this</p>
+<code>
+brew install groff gs
+</code>
+<p>This command also has you install ghostscript, which I have read (I can't confirm, I don't work on Mac) may be
+necessary for generating PDFs with groff on Mac.</p>
+
+<h2>Your First Groff Document</h2>
+<p>In order to make a groff file, you need to use a text editor. Since this tutorial is teaching the ms macros,
+we will name our file witht the extension .ms, which many programming oriented text editors will recognize and 
+thus provide syntax highlighting. Let us start simple:</p>
+<code>
+.TL<br>
+My Groff Document<br>
+.AU<br>
+John Doe<br>
+.LP<br>
+This will be the first sentence in my first paragraph.<br>
+</code>
+<p>Before we talk about what this command did, let us compile it first and see the output.</p>
+<h2>Compilation</h2>
+<p>Next we will work directly with groff. Groff reads in structured plain text, and typesets it, and then writes it
+directly to STDOUT. To capture the output, we can redirect it to a file, like this.</p>
+<code>
+groff -ms -T pdf mydoc.ms > mydoc.pdf
+</code>
+<p>This code is saying to run groff, use the ms macros, output to pdf, read in the file mydoc.ms, and store the output
+in the file mydoc.pdf. Let's see what the PDF we generate looks like.</p>
+<img src="tut1_img1.png" width="100%"></img>
+<p>As we can see, the .TL command generated a title, which has been bolded and centered at the top of the page. The .AU
+command has written the author's name italicized underneath the title. .LP is an acronym for "leading paragraph" and
+gives us a paragraph without indentation. We can also add some more code to the file, using the .PP command, which
+will start paragraphs with an indent.</p>
+<p>Before we do this, there is something worth noting. All groff commands start with a period, and are at the beginning of
+a line. This may seem barbaric to TeX users, but this has its advantages. Namely, it is trivial to write programs that will
+do a single pass parse of a groff file. In fact, as we will see later, groff itself only performs a single pass, which 
+limits its ability to do cross referencing, but leads to compilation being near instant, and allows piping into and out
+of groff, which is impossible in TeX.</p>
+</div>
+</body>
+</html>
