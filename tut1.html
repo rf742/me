@@ -26,7 +26,7 @@
 <li>A Windows 10 system with WSL installed.</li>
 </ul>
 <p>Any of these will provide access to groff. Note that mac, linux, and bsd systems generally come with
-some form of groff installed. Do not use this package as is. Most linux distros refer to this preinstalled
+some form of groff installed. Do not use this package as is. Most linux distros refer to this pre-installed
 system as 'groff-base' and it will not come with many of the related packages we need to use.</p>
 <p>The following command is generally all that is needed on any linux system that uses apt:</p>
 <code>
@@ -46,7 +46,7 @@ necessary for generating PDFs with groff on Mac.</p>
 
 <h2>Your First Groff Document</h2>
 <p>In order to make a groff file, you need to use a text editor. Since this tutorial is teaching the ms macros,
-we will name our file witht the extension .ms, which many programming oriented text editors will recognize and 
+we will name our file with the extension .ms, which many programming oriented text editors will recognize and 
 thus provide syntax highlighting. Let us start simple:</p>
 <code>
 .TL<br>
@@ -66,7 +66,7 @@ groff -ms -T pdf mydoc.ms > mydoc.pdf
 <p>This code is saying to run groff, use the ms macros, output to pdf, read in the file mydoc.ms, and store the output
 in the file mydoc.pdf. Let's see what the PDF we generate looks like.</p>
 <img src="tut1_img1.png" width="100%"></img>
-<p>As we can see, the .TL command generated a title, which has been bolded and centered at the top of the page. The .AU
+<p>As we can see, the .TL command generated a title, which has been made bold and centered at the top of the page. The .AU
 command has written the author's name italicized underneath the title. .LP is an acronym for "leading paragraph" and
 gives us a paragraph without indentation. We can also add some more code to the file, using the .PP command, which
 will start paragraphs with an indent.</p>
