@@ -1,0 +1,124 @@
+<html>
+<head>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="style.css">
+<style type="text/css" media="screen">
+/*	* {padding: 0; margin: 0;} */
+	table {font: monospace; font-size: 18pt;border-spacing: 3px;padding: 5px;border: 1px solid white;text-align: center;}
+	td {border: solid 1px white;}
+	canvas {background: #eee; display: block; margin: 0 auto;}
+	.basic-grid{display: grid gap: 1rem text-align: center;
+		grid-template-columns: repeat(auto-fit,minmax(340px,1fr))}
+.card {padding-bottom: 1rem;}
+</style>
+</head>
+<body>
+<script src="nav.js"></script>
+<main>
+<h1>Projectile Motion</h1>
+
+
+<p>This is a simulator for projectile motion</p>
+<section class="basic-grid">
+	<div class="card">
+<canvas id="prcan" width="960" height="640"></canvas>	
+	</div>
+	<div class="card">
+<table id="tableout">	
+<tr><th>angle</th><th>distance</th></tr>	
+</table>
+	</div>
+<div class="card">
+	
+<form id="myform">
+	Launch Angle <input type="text" name="posx">
+	<input type="button" onclick="letMeCallYou()" value="Submit"><br>
+	<p id="validangle" class="annotation"> Enter an angle</p>
+</form>
+	<input type="button" onclick="cleartable()" value="cleartable"><br>
+</div>
+</section>
+
+<script type="text/javascript">
+
+var out = document.getElementById('out');
+const canvas = document.getElementById('prcan');
+const ctx = canvas.getContext('2d');
+ctx.font = "20px Times New Roman"
+var x = 20;
+var y = canvas.height-20;
+var v0 = 8.5;
+var theta;
+var vx;
+var vy;
+var ballradius = 10;
+
+function clearCanvas(){
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+function drawCoords(){
+	var msg = "X: " + x.toFixed(2) +" Y: "+(canvas.height-y).toFixed(2);
+	ctx.fillText(msg, 10, 50);
+	
+}
+function drawBall() {
+ctx.beginPath();
+ctx.arc(x,y, ballradius, 0, Math.PI*2);
+ctx.fillstyle = "black";
+ctx.fill();
+ctx.closePath();
+
+}
+function draw(vx, vy,theta) {
+    console.log("Theta inside draw: "+ theta)
+    clearCanvas();	
+    drawBall();
+    drawCoords();
+//    console.log("vx =" + vx)
+//    console.log("x =" + x)
+    vx += 0; // no acceleration inx
+    vy += .1; //constant accerlation down in y (positive in screen coordinates)
+    x += vx;
+    y += vy;
+    if (y <= canvas.height){
+    	requestAnimationFrame(function(){draw(vx,vy, theta);});
+    }
+    else{
+		console.log(theta)	
+//		document.getElementById("out").innerHTML += "| angle: "+ (theta*180/Math.PI).toFixed(2) + " distance: "+ x.toFixed(2) + " |<br>"
+		document.getElementById("tableout").innerHTML += "<tr><td>" +(theta*180/Math.PI).toFixed(2) + "</td><td>" +x.toFixed(2) +  "</td></tr>"
+		x = 20
+		y = canvas.height -20;
+		vx=0;
+		vy=0;
+	}
+}
+
+function letMeCallYou()
+{
+	var theta = document.getElementById("myform").elements["posx"].value;
+	if (isNaN(theta) || theta < 0 || theta > 90){
+		text = "Please input a number between 0 and 90.";
+		document.getElementById("validangle").innerHTML = text;	
+	}
+	else {
+		theta = theta*Math.PI/180;
+		vx = v0*Math.cos(theta);
+		vy = -v0*Math.sin(theta);
+		console.log(theta);
+		draw(vx,vy, theta);
+	}
+}
+function cleartable(){
+
+		document.getElementById("tableout").innerHTML = "<tr><th>angle</th><th>distance</th></tr>"
+}
+
+
+</script>
+
+</main>
+</body>
+</html>
