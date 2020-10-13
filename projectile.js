@@ -37,7 +37,7 @@ function letMeCallYou()
 	var theta, text;
 	theta = document.getElementById("myform").elements["posx"].value;
 	console.log(theta);
-	if (isNaN(theta) || theta < 0 || theta > 90){
+	if (isNaN(theta) || theta <= 0 || theta >= 90){
 		text = "Please input a number between 0 and 90.";
 		document.getElementById("validangle").innerHTML = text;	
 	}

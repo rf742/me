@@ -33,10 +33,10 @@
 <p>This is a simulator for projectile motion</p>
 <div class="wrapper" style="margin: 0 auto; width: 800px; position: relative;">
 <canvas id="prcan" width="800" height="400"></canvas>	
-   <div class="controls" style="position: absolute; top: 0; right: 0;">
+   <div class="controls" style="position: absolute; top: 0; right: 0; overflow-y: auto; height: 400;">
 <form id="myform">
 	<span id="canvas-title">Launch Angle</span> <input type="text" name="posx">
-	<input type="button" onclick="letMeCallYou()" value="Submit"><br>
+	<input type="button" onclick="letMeCallYou()" value="Launch!"><br>
 	<span id="validangle" class="annotation"> Enter an angle</span>
 </form>
 <table id="tableout" align="right" color="black">	
@@ -98,8 +98,8 @@ function draw(vx, vy,theta) {
 		console.log(theta)	
 //		document.getElementById("out").innerHTML += "| angle: "+ (theta*180/Math.PI).toFixed(2) + " distance: "+ x.toFixed(2) + " |<br>"
 		document.getElementById("tableout").innerHTML += "<tr><td>" +(theta*180/Math.PI).toFixed(2) + "</td><td>" +x.toFixed(2) +  "</td></tr>"
-		x = 20
-		y = canvas.height -20;
+		x = 0
+		y = canvas.height;
 		vx=0;
 		vy=0;
 	}
