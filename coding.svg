@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="159.18283mm"
+   height="148.50856mm"
+   viewBox="0 0 159.18283 148.50856"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   sodipodi:docname="coding.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.74029882"
+     inkscape:cx="287.72165"
+     inkscape:cy="237.06643"
+     inkscape:window-width="1023"
+     inkscape:window-height="1008"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-1.9999973,-52.980384)">
+    <rect
+       style="fill:#000000;stroke-width:0.264583"
+       id="rect235"
+       width="72.194946"
+       height="13.22383"
+       x="118.65246"
+       y="-75.932037"
+       transform="rotate(60)" />
+    <rect
+       style="fill:#000000;stroke-width:0.264583"
+       id="rect235-0"
+       width="72.194946"
+       height="13.22383"
+       x="-109.25611"
+       y="65.388458"
+       transform="rotate(-60)" />
+    <rect
+       style="fill:#000000;stroke-width:0.264583"
+       id="rect235-0-3"
+       width="72.194946"
+       height="13.22383"
+       x="111.25609"
+       y="48.700504"
+       transform="rotate(60)" />
+    <rect
+       style="fill:#000000;stroke-width:0.264583"
+       id="rect235-3"
+       width="72.194946"
+       height="13.22383"
+       x="-101.85974"
+       y="190.02104"
+       transform="rotate(-60)" />
+    <rect
+       style="fill:#000000;stroke-width:0.264583"
+       id="rect405"
+       width="13.581227"
+       height="150.10829"
+       x="103.16534"
+       y="27.206261"
+       transform="rotate(15)" />
+  </g>
+</svg>
