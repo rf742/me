@@ -12,6 +12,12 @@ document.write('<nav class="navbar">\
             <span class="link-text">groff</span>\
           </a>\
         </li>\
+      <li class="nav-item">\
+        <a href="cs.html" class="nav-link">\
+          <img src="coding.svg" width="5rem"/>\
+          <span class="link-text">groff</span>\
+        </a>\
+      </li>\
     	<li class="nav-item">\
           <a href="phys.html" class="nav-link">\
             <img src="physics.svg" width="5rem"/>\
