@@ -45,27 +45,38 @@ brew install groff gs
 necessary for generating PDFs with groff on Mac.</p>
 
 <h2>Your First Groff Document</h2>
+
 <p>In order to make a groff file, you need to use a text editor. Since this tutorial is teaching the ms macros,
 we will name our file with the extension .ms, which many programming oriented text editors will recognize and 
 thus provide syntax highlighting. Let us start simple:</p>
+
 <code>
-.TL<br>
-My Groff Document<br>
-.AU<br>
-John Doe<br>
-.LP<br>
-This will be the first sentence in my first paragraph.<br>
+	.TL<br>
+	My Groff Document<br>
+	.AU<br>
+	John Doe<br>
+	.LP<br>
+	This will be the first sentence in my first paragraph.<br>
 </code>
+
 <p>Before we talk about what this command did, let us compile it first and see the output.</p>
+
 <h2>Compilation</h2>
+
 <p>Next we will work directly with groff. Groff reads in structured plain text, and typesets it, and then writes it
 directly to STDOUT. To capture the output, we can redirect it to a file, like this.</p>
+
 <code>
-groff -ms -T pdf mydoc.ms > mydoc.pdf
+	groff -ms -T pdf mydoc.ms > mydoc.pdf<br>
 </code>
+
 <p>This code is saying to run groff, use the ms macros, output to pdf, read in the file mydoc.ms, and store the output
 in the file mydoc.pdf. Let's see what the PDF we generate looks like.</p>
-<img src="tut1_img1.png" width="100%"></img>
+
+<div align="center">
+<img src="tut1_img1.png" width="75%"></img>		
+</div>
+
 <p>As we can see, the .TL command generated a title, which has been made bold and centered at the top of the page. The .AU
 command has written the author's name italicized underneath the title. .LP is an acronym for "leading paragraph" and
 gives us a paragraph without indentation. We can also add some more code to the file, using the .PP command, which
@@ -75,6 +86,26 @@ a line. This may seem barbaric to TeX users, but this has its advantages. Namely
 do a single pass parse of a groff file. In fact, as we will see later, groff itself only performs a single pass, which 
 limits its ability to do cross referencing, but leads to compilation being near instant, and allows piping into and out
 of groff, which is impossible in TeX.</p>
+<p>Let's add another paragraph and some more text!</p>
+<code>
+	.TL<br>
+	My Groff Document<br>
+	.AU<br>
+	John Doe<br>
+	.LP<br>
+	This will be the first sentence in my first paragraph.<br>
+	This will be the second sentence in my first paragraph.<br>
+	.PP<br>
+	This will be the first sentence in my second paragraph.<br>
+	This will be the second sentence in my second paragraph.<br>
+</code>
+<br>
+<div align="center">
+	<img src="tut1_img2.png" width="75%"></img>			
+</div>
+<p>As advertised, we see that the second paragraph starts with an
+indent, as it is marked with .PP instead of .LP</p>
+
 </div>
 </body>
 </html>
