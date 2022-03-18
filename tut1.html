@@ -104,6 +104,45 @@ of groff, which is impossible in TeX.</p>
 <p>As advertised, we see that the second paragraph starts with an
 indent, as it is marked with .PP instead of .LP</p>
 
+<h3>Bold, italic, underline, oh my!</h3>
+
+<p>Any software used to format text must be able to italicize, bold,
+or underline text. These are all acheived through identical types of
+syntax.
+</p>
+<ul>
+	<li>Bold is achieved with .B</li>
+	<li>Italics are achieved with .I</li>
+	<li>Underlines are achieved with .UL</li>
+</ul>
+<p>Let's say I want to typeset the following sentence in groff:<br><br>
+I want to eat an <strong>apple</strong>.
+</p>
+<p>In groff, we can use the following line:</p>
+<code>I want to eat an<br>.B apple.</code>
+<p>That will produce almost what we want. The issue is that we don't 
+want the period to be bolded. If you complile a groff file with
+the aforementioned line, you will see that the period is bolded as well.</p>
+<p>How can we avoid this? Easy, just put a space between apple and
+the period.</p>
+<code>.B apple .</code>
+<p>Doing this tells groff to put the word "apple" and the period
+directly adjacent (no space between them) but do not bold the
+period.</p>
+<p>Let's get a little more complicated, and say we want to bold
+a term inside of parentheses. In this case we have something
+directly before the word (open parentheses) and something directly
+after the word (closed parentheses) that we want attached to the
+bolded word, but not parenthesized.</p>
+<code>.B apple ) (</code>
+<p>This code will generate: (<strong>apple</strong>)<br> The idea
+here is we say in general:</p>
+<code>.B text_to_be_bolded post pre</code>
+<p>Where post and pre are the items found directly attached to the 
+bolded term after and before repsectively.</p>
+
+
+
 </main>
 </body>
 </html>
