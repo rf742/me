@@ -1,0 +1,63 @@
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<script src="nav.js"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<main>
+<h1><b>zap</b> and Electrostatics</h1>
+
+<h2>Electrostatics</h2>
+
+<p>Electrostatics is the field of physics dealing with electrical charges not in motion.
+The most basic example of this, and one of the first encountered when seeing this topic
+in introductory physics classes is that of point charges.</p>
+
+<p>A point charge is an idealized body that has charge and takes up no volume. 
+One on its own is boring, but the fun starts when we have multiple. We know
+that opposite charges attract, and like charges repel. Electrostatics has the
+tool of Coulombs's Law, which allows us to compute the forces between different
+point charges in a system.</p>
+<h3>Coulomb's Law</h3>
+<p>The law governing the force between point charges (Coulomb's Law) is given as:
+
+\[F_e = k{q_1q_2 \over r^2}\]
+<ul>
+<li>Where \(F_e\) is the force between two particles</li>
+<li>\(q_1, q_2\) are the charges of the two particles.</li>
+<li>and \(r^2\) is the square of the distance bewteen them.</li>
+	
+</ul>
+
+
+</p>
+<h3>A simple, 1D example</h3>
+
+<h3>3 charges, 1D example</h3>
+
+<h3>3 charges, 2D example</h3>
+
+<h3>3D?</h3>
+
+<h3>Increasing the number of charges</h3>
+<p>As you keep adding more and more charges, the work gets very tedious rather
+quickly. Think about it. If I add a fourth charge to one of our worked
+examples, I need to now:</p>
+<ul>
+  <li>Add the effect of the 4th charge to the net force on each of the other three.</li>
+  <li>Furthermore, I need to compute the effects of charges 1,2, and 3 on the 4th.</li>
+</ul>
+<p>Doing this by hand gets silly as we add even more charges. While doable, it
+gets quite tedious.</p>
+
+<h3>zap</h3>
+<p>If you do want to calculate the effects of a large number of particles on
+each other, one of the best ways to avoid the tedium and simple errors that
+come with this repetitive computation is to ask a computer to do it for you.
+One such program is <i>zap</i>, a program I have written. Please check out the
+github page for it if you are interested in it 
+<a href="https://github.com/rf742/py_zap" target="_blank">(link)</a>.</p>
+</main>
+</body>
+</html>
